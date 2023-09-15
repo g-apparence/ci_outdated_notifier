@@ -1,0 +1,15 @@
+name: 'Dart dependency check action'
+description: 'Check all dependencies of a flutter project and notify if there is an update available.'
+author: 'Gautier'
+branding:
+  icon: 'maximize'
+  color: 'blue'
+runs:
+  using: 'dart'
+  steps:
+    - id: 'dart-dependency-check'
+    - name: 'Check dependencies'
+    - run: |
+        dart pub global activate ci_outdated_notifier' 
+        dart pub global run ci_outdated_notifier -p ./pubspec.yaml
+        

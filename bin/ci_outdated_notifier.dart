@@ -1,5 +1,4 @@
-import 'package:ci_outdated_notifier/ci_outdated_notifier.dart'
-    as ci_outdated_notifier;
+import 'package:ci_outdated_notifier/ci_outdated_notifier.dart' as app;
 import 'dart:io';
 import 'package:args/args.dart';
 
@@ -27,5 +26,16 @@ Future<void> main(List<String> arguments) async {
     return;
   }
   //---------
-  await ci_outdated_notifier.getOutdatedDependencies(argResults[filePath]);
+  final res = await app.getOutdatedDependencies(argResults[filePath]);
+  if (res.dependencies.isEmpty) {
+    stdout.writeln('...No outdated dependencies found.');
+    return;
+  }
+  if (res.dependencies.isNotEmpty) {
+    stderr.writeln('Outdated dependencies:');
+    res.dependencies.forEach((key, value) {
+      stderr.writeln('$key: ${value.current} -> ${value.latest}');
+    });
+    throw Exception("Outdated dependencies found.");
+  }
 }

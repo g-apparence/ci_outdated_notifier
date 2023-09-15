@@ -1,6 +1,6 @@
 name: ci_outdated_notifier
 description: Read a pubspec.yaml file and check for outdated dependencies.
-version: 0.0.1
+version: 0.0.3
 repository: https://github.com/g-apparence/ci_outdated_notifier
 environment:
   sdk: ^3.1.0
@@ -10,6 +10,7 @@ dependencies:
   args: ^2.4.2
   dio: ^5.3.2
   path: ^1.8.3
+  pub_semver: ^2.1.4
   pub_updater: ^0.3.1
   yaml: ^3.1.2
 # path: ^1.8.0
