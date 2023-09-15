@@ -1,7 +1,7 @@
 name: ci_outdated_notifier
-description: A sample command-line application.
-version: 1.0.0
-repository: https://github.com/my_org/my_repo
+description: Read a pubspec.yaml file and check for outdated dependencies.
+version: 0.0.1
+repository: https://github.com/g-apparence/ci_outdated_notifier
 environment:
   sdk: ^3.1.0
 
